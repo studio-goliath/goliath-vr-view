@@ -12,7 +12,7 @@ add_action( 'wp_enqueue_scripts', 'gvv_enqueue_scripts' );
 
 function gvv_enqueue_scripts(){
 
-    wp_register_script( 'google-vrview', 'https://storage.googleapis.com/vrview/2.0/build/vrview.min.js', array(), '2.0', true );
+    wp_register_script( 'google-vrview', plugins_url( '/js/vrview.min.js', __FILE__ ), array(), '2.0', true );
     wp_register_script( 'goliath-vrview', plugins_url( '/js/scripts.js', __FILE__ ), array( 'google-vrview' ), '20180208', true );
 }
 
