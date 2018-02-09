@@ -21,15 +21,14 @@ add_shortcode( 'vrview', 'gvv_do_vrview_shortcode' );
 
 function gvv_do_vrview_shortcode ( $attr ){
 
-    if( isset( $attr['image'] ) && ! empty( $attr['image'] ) ){
+    if( isset( $attr['url'] ) && ! empty( $attr['url'] ) ){
 
         wp_enqueue_script( 'goliath-vrview' );
 
-        $image_id = intval( $attr['image'] );
-        $image_full_url = esc_attr( wp_get_attachment_url( $image_id ) );
-        $uniq_id = uniqid( 'gvv' );
+        $image_url = esc_attr( $attr['url'] );
+        $uniq_id = uniqid( 'gvv-' );
 
-        return "<div id='{$uniq_id}' class='gvv-vrview' data-image-url='{$image_full_url}'></div>";
+        return "<div id='{$uniq_id}' class='gvv-vrview' data-image-url='{$image_url}'></div>";
     }
 
 }
